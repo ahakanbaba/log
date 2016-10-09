@@ -119,3 +119,7 @@ func (l *Log) Fatalf(f string, a ...interface{}) {
 		l.log.Printf("%s "+f, a...)
 	}
 }
+
+// FixMe: We should make the comments go doc friendly.
+// FixMe: Add some examples.
+// FixMe: Add some readme and documentation.
