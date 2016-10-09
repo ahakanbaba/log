@@ -54,23 +54,23 @@ func DefaultLog(fileNamePrefix string) *log.Logger {
 	return l
 }
 
-func NewLogger(sev Severity, l *log.Logger) *Log {
+func NewLog(sev Severity, l *log.Logger) *Log {
 	return &Log{sev, l}
 }
 
-func (l *Log) isDebugEnabled() bool {
+func (l *Log) IsDebugEnabled() bool {
 	return l != nil && l.enabledSeverity <= Debug
 }
-func (l *Log) isInfoEnabled() bool {
+func (l *Log) IsInfoEnabled() bool {
 	return l != nil && l.enabledSeverity <= Info
 }
-func (l *Log) isWarningEnabled() bool {
+func (l *Log) IsWarningEnabled() bool {
 	return l != nil && l.enabledSeverity <= Warning
 }
-func (l *Log) isErrorEnabled() bool {
+func (l *Log) IsErrorEnabled() bool {
 	return l != nil && l.enabledSeverity <= Error
 }
-func (l *Log) isFatalEnabled() bool {
+func (l *Log) IsFatalEnabled() bool {
 	return l != nil && l.enabledSeverity <= Fatal
 }
 
@@ -78,7 +78,7 @@ func (l *Log) Debugf(f string, a ...interface{}) {
 	if l == nil {
 		return
 	}
-	if l.isDebugEnabled() {
+	if l.IsDebugEnabled() {
 		a = append([]interface{}{"DEBUG"}, a...)
 		l.log.Printf("%s "+f, a...)
 	}
@@ -87,7 +87,7 @@ func (l *Log) Infof(f string, a ...interface{}) {
 	if l == nil {
 		return
 	}
-	if l.isInfoEnabled() {
+	if l.IsInfoEnabled() {
 		a = append([]interface{}{"INFO"}, a...)
 		l.log.Printf("%s "+f, a...)
 	}
@@ -96,7 +96,7 @@ func (l *Log) Warningf(f string, a ...interface{}) {
 	if l == nil {
 		return
 	}
-	if l.isWarningEnabled() {
+	if l.IsWarningEnabled() {
 		a = append([]interface{}{"WARNING"}, a...)
 		l.log.Printf("%s "+f, a...)
 	}
@@ -105,7 +105,7 @@ func (l *Log) Errorf(f string, a ...interface{}) {
 	if l == nil {
 		return
 	}
-	if l.isErrorEnabled() {
+	if l.IsErrorEnabled() {
 		a = append([]interface{}{"ERROR"}, a...)
 		l.log.Printf("%s "+f, a...)
 	}
@@ -114,7 +114,7 @@ func (l *Log) Fatalf(f string, a ...interface{}) {
 	if l == nil {
 		return
 	}
-	if l.isFatalEnabled() {
+	if l.IsFatalEnabled() {
 		a = append([]interface{}{"FATAL"}, a...)
 		l.log.Printf("%s "+f, a...)
 	}
