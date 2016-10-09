@@ -27,7 +27,7 @@ type Log struct {
 	// enabledSeverity specifies the lowest enabled severity.
 	// Any severity greater or equal to enabledSeverity are enabled.
 
-	log *log.Logger
+	Impl *log.Logger
 	// The log object from standard library that is used for actual log generation.
 }
 
@@ -54,7 +54,7 @@ func DefaultLog(fileNamePrefix string) *log.Logger {
 	return l
 }
 
-func NewLog(sev Severity, l *log.Logger) *Log {
+func New(sev Severity, l *log.Logger) *Log {
 	return &Log{sev, l}
 }
 
@@ -80,7 +80,7 @@ func (l *Log) Debugf(f string, a ...interface{}) {
 	}
 	if l.IsDebugEnabled() {
 		a = append([]interface{}{"DEBUG"}, a...)
-		l.log.Printf("%s "+f, a...)
+		l.Impl.Printf("%s "+f, a...)
 	}
 }
 func (l *Log) Infof(f string, a ...interface{}) {
@@ -89,7 +89,7 @@ func (l *Log) Infof(f string, a ...interface{}) {
 	}
 	if l.IsInfoEnabled() {
 		a = append([]interface{}{"INFO"}, a...)
-		l.log.Printf("%s "+f, a...)
+		l.Impl.Printf("%s "+f, a...)
 	}
 }
 func (l *Log) Warningf(f string, a ...interface{}) {
@@ -98,7 +98,7 @@ func (l *Log) Warningf(f string, a ...interface{}) {
 	}
 	if l.IsWarningEnabled() {
 		a = append([]interface{}{"WARNING"}, a...)
-		l.log.Printf("%s "+f, a...)
+		l.Impl.Printf("%s "+f, a...)
 	}
 }
 func (l *Log) Errorf(f string, a ...interface{}) {
@@ -107,7 +107,7 @@ func (l *Log) Errorf(f string, a ...interface{}) {
 	}
 	if l.IsErrorEnabled() {
 		a = append([]interface{}{"ERROR"}, a...)
-		l.log.Printf("%s "+f, a...)
+		l.Impl.Printf("%s "+f, a...)
 	}
 }
 func (l *Log) Fatalf(f string, a ...interface{}) {
@@ -116,7 +116,7 @@ func (l *Log) Fatalf(f string, a ...interface{}) {
 	}
 	if l.IsFatalEnabled() {
 		a = append([]interface{}{"FATAL"}, a...)
-		l.log.Printf("%s "+f, a...)
+		l.Impl.Printf("%s "+f, a...)
 	}
 }
 
