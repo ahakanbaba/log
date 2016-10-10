@@ -1,9 +1,10 @@
 // log package is a simple lightweight wrapper adding severity specification
-// around the log package from the standard library. log package enables,
-// users to make calls like log.Debugf(...) log.Warnindf(...). It uses the
-// log package from the standard library as the logger implementation. It can
-// be passed a user specified log.Logging object or one can use a DefaultLog
-// that has reasonable defaults. See the Examples for more information
+// around the log package from the standard library. This package enables,
+// users to make calls like log.Debugf(...) log.Warningf(...), etc. It uses the
+// log package from the standard library as the underlying logger
+// implementation. It can be passed a user specified log.Logging object or one
+// can use a DefaultLog that has reasonable defaults. See the Examples for more
+// information.
 package log
 
 import (
@@ -160,4 +161,3 @@ func (l *Log) Fatalf(f string, a ...interface{}) {
 }
 
 // FixMe: Add some examples.
-// FixMe: Add some readme and documentation.
