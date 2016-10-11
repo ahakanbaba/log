@@ -6,4 +6,4 @@ log package from the standard library as the underlying logger
 implementation. It can be passed a user specified log.Logging object or one
 can use a DefaultLog that has reasonable defaults.
 
-// FixMe: Add a link to the godoc page.
+For more information see: https://godoc.org/github.com/ahakanbaba/log
