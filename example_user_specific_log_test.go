@@ -6,12 +6,14 @@ import (
 	"os"
 )
 
+const logPrefix = ""
+
 // If the user does not like the parameters in DefaultLog, she can pass their
 // own log object to use.
-func ExampleUserSpecificLog() {
+func Example_userSpecificLog() {
 	// The user wants simple logging to stdout. Does not care about timestamps
 	// in the log messages
-	logImpl := stdlog.New(os.Stdout, "", 0)
+	logImpl := stdlog.New(os.Stdout, logPrefix, 0)
 	// Pass the user specific logImpl to the New function to use its settings
 	l := log.New(log.Warning, logImpl)
 
