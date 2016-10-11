@@ -29,3 +29,4 @@ func ExampleDefaultLog() {
 
 // FixMe: Add using isDebugEnabled. With expensive command line arguments to be
 // evaluated to the log function.
+// FixMe: Add different module's logs get accumulated in the same log file.

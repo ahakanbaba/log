@@ -124,7 +124,7 @@ func (l *Log) Infof(f string, a ...interface{}) {
 	}
 }
 
-// Warningf generates a Warning level log with a "WARNING " annotation. Arguments are
+// Warningf generates a Warning level log with a "WARNING" annotation. Arguments are
 // handled in the manner of fmt.Printf.
 func (l *Log) Warningf(f string, a ...interface{}) {
 	if l == nil {
