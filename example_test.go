@@ -14,7 +14,6 @@ func ExampleDefaultLog() {
 	l := log.New(log.Info, log.DefaultLog("SimpleMath"))
 
 	a := 3
-	tt := 13
 	b := 5
 	c := 3 + 5
 	// Prints:
