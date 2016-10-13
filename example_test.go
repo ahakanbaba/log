@@ -15,7 +15,6 @@ func ExampleDefaultLog() {
 
 	a := 3
 	b := 5
-	kk := 31
 	c := 3 + 5
 	// Prints:
 	// 2016/10/10 18:09:42.444874 INFO 3 + 5 is equal to 8
